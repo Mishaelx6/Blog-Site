@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Insights | Music & Personal Growth Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #9d4dee;
+            --primary-dark: #7e3cc2;
+            --primary-light: #f3e8fd;
+            --secondary: #616e7c;
+            --light: #f9fafb;
+            --dark: #1f2933;
+            --accent: #ffd700;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(157, 77, 238, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 180px 0 100px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .float-1 {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            top: 50px;
+            left: 50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .float-2 {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.2);
+            bottom: 80px;
+            right: 100px;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        /* Categories Section */
+        .categories {
+            background-color: var(--light);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(157, 77, 238, 0.15);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .category-card p {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Featured Section */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .featured-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 100%;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(157, 77, 238, 0.2);
+        }
+
+        .featured-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            z-index: -1;
+        }
+
+        .featured-content {
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .featured-card:nth-child(2) .featured-tag {
+            background: rgba(255, 215, 0, 0.3);
+        }
+
+        .featured-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .featured-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .author-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            margin-right: 15px;
+        }
+
+        .podcast-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .podcast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(157, 77, 238, 0.15);
+        }
+
+        .podcast-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .podcast-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .podcast-info h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .podcast-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .podcast-play {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .podcast-play:hover {
+            transform: scale(1.1);
+            background: var(--primary-dark);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .testimonials .section-title h2 {
+            color: white;
+        }
+
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .testimonial-text::before {
+            content: """;
+            position: absolute;
+            top: -15px;
+            left: 0;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ddd;
+            margin-right: 15px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--light);
+        }
+
+        .newsletter-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(157, 77, 238, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-text {
+            flex: 1;
+            color: white;
+            padding-right: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-group {
+            display: flex;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 16px 25px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group button {
+            padding: 16px 30px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-group button:hover {
+            background: #111;
+        }
+
+        .newsletter-floating {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .newsletter-float-1 {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            top: 30px;
+            right: 100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .newsletter-float-2 {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.2);
+            bottom: 40px;
+            left: 100px;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-about .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact li {
+            list-style: none;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: #aaa;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .floating-music {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(157, 77, 238, 0.4);
+            cursor: pointer;
+            z-index: 100;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .newsletter-box {
+                padding: 50px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transition: all 0.4s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                background: var(--primary-light);
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-bottom: 50px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .newsletter-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            .form-group input {
+                border-radius: 50px;
+                margin-bottom: 15px;
+            }
+
+            .form-group button {
+                border-radius: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-box {
+                padding: 40px 25px;
+            }
+
+            .newsletter-text h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-music"></i>
+                    <div class="logo-text">Vicola.ng</div>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Music & Creativity</a>
+                            <a href="#">Motivational Talks</a>
+                            <a href="#">Life Coaching</a>
+                            <a href="#">Relationships</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Podcasts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <a href="#" class="btn">Subscribe</a>
+
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Harmonize Your <span>Life</span> Through Music & Wisdom</h1>
+                    <p>Discover transformative insights that blend musical inspiration with life coaching, relationship advice, and motivational wisdom to create your best life.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Explore Articles</a>
+                        <a href="#" class="btn btn-outline">Listen to Podcast</a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="hero-image-placeholder">
+                        <div>Featured Content Image</div>
+                        <div class="floating-element float-1"></div>
+                        <div class="floating-element float-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Our Core Topics</h2>
+                <p>Dive into our carefully curated content that spans across multiple dimensions of personal growth and artistic expression.</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music & Creativity</h3>
+                    <p>Unlock your creative potential and find inspiration through the power of music.</p>
+                    <a href="#" class="btn">Explore Articles</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Motivational Talks</h3>
+                    <p>Ignite your passion and drive with powerful motivational insights and stories.</p>
+                    <a href="#" class="btn">Get Inspired</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Life Coaching</h3>
+                    <p>Navigate life's challenges and design the fulfilling life you've always wanted.</p>
+                    <a href="#" class="btn">Start Your Journey</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Relationships</h3>
+                    <p>Build deeper connections and foster meaningful relationships in your life.</p>
+                    <a href="#" class="btn">Cultivate Love</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Content</h2>
+                <p>Discover our most popular articles and podcasts that are transforming lives.</p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-bg"></div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Music</span>
+                        <h3>The Rhythm of Resilience: How Music Builds Mental Strength</h3>
+                        <p>Discover how musical patterns can help rewire your brain for greater resilience in challenging times.</p>
+                        <div class="featured-author">
+                            <div class="author-img"></div>
+                            <div>
+                                <p>Alex Morgan</p>
+                                <small>June 12, 2023 • 8 min read</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-content">
+                        <span class="featured-tag">Motivation</span>
+                        <h3>From Dream to Reality: The 5-Step Activation Process</h3>
+                        <p>Learn how to transform your aspirations into tangible results with this powerful framework.</p>
+                        <div class="featured-author">
+                            <div class="author-img"></div>
+                            <div>
+                                <p>Jamie Reynolds</p>
+                                <small>May 28, 2023 • 10 min read</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="podcast-card">
+                    <div class="podcast-header">
+                        <div class="podcast-icon">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <div class="podcast-info">
+                            <span>PODCAST</span>
+                            <h3>Harmony in Relationships</h3>
+                        </div>
+                    </div>
+                    <p>In this episode, we explore how principles from music composition can transform your relationships and create deeper connections.</p>
+                    <div class="podcast-actions">
+                        <div class="author">
+                            <div class="featured-author">
+                                <div class="author-img"></div>
+                                <div>
+                                    <p>Sarah Johnson</p>
+                                    <small>Host</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="podcast-play">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="podcast-progress">
+                        <div class="progress-info">
+                            <span>Episode 24</span>
+                            <span>45 min</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div style="width: 70%; height: 5px; background: var(--primary); border-radius: 5px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transformations Through Harmony</h2>
+                <p>Hear from our community about their life-changing experiences.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">The insights on combining music with life coaching completely transformed my approach to personal growth. I've found a new rhythm to my life!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-img"></div>
+                        <div>
+                            <p>Michael Thompson</p>
+                            <small>Musician & Entrepreneur</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">The relationship coaching helped my marriage in ways I couldn't imagine. We've found our harmony again after years of discord.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-img"></div>
+                        <div>
+                            <p>Jennifer Lopez</p>
+                            <small>Marketing Director</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">The motivational content gave me the courage to pursue my passion for music professionally. I've released my first album at 45!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-img"></div>
+                        <div>
+                            <p>David Rodriguez</p>
+                            <small>Artist & Teacher</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-text">
+                    <h3>Join Our Community</h3>
+                    <p>Subscribe to receive exclusive content, early access to podcasts, and transformative insights delivered to your inbox.</p>
+                </div>
+
+                <div class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <p><small>We respect your privacy. Unsubscribe at any time.</small></p>
+                </div>
+
+                <div class="newsletter-floating newsletter-float-1"></div>
+                <div class="newsletter-floating newsletter-float-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="logo">
+                        <i class="fas fa-music"></i>
+                        <div class="logo-text">Harmony<span>Insights</span></div>
+                    </div>
+                    <p>Blending musical inspiration with life coaching to create harmony in all aspects of your life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Podcasts</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Music & Creativity</a></li>
+                        <li><a href="#">Motivational Talks</a></li>
+                        <li><a href="#">Life Coaching</a></li>
+                        <li><a href="#">Relationships</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Harmony Street, Creative City</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@harmonyinsights.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Harmony Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Music Button -->
+    <div class="floating-music">
+        <i class="fas fa-headphones"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Floating music button interaction
+        const musicButton = document.querySelector('.floating-music');
+        musicButton.addEventListener('click', function() {
+            this.classList.toggle('playing');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-headphones')) {
+                icon.classList.remove('fa-headphones');
+                icon.classList.add('fa-volume-up');
+            } else {
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-headphones');
+            }
+        });
+
+        // Card hover effect enhancements
+        const cards = document.querySelectorAll('.category-card, .featured-card, .podcast-card, .testimonial-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                if (emailInput.value) {
+                    alert('Thank you for subscribing! You will receive our latest insights soon.');
+                    emailInput.value = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
